@@ -13,7 +13,7 @@ def check_user(request):
     uid = request.data['uid']
 
     # Use the built-in authenticate method to verify
-    # authenticate returns the user object or None if no user is found
+    # authenticate returns the user object or None if no user is found maybe
     user = User.objects.filter(uid=uid).first()
 
     # If authentication was successful, respond with their token
