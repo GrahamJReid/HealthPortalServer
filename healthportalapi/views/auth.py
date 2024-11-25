@@ -46,7 +46,9 @@ def register_user(request):
         username=request.data['username'],
         email=request.data['email'],
         image_url=request.data['image_url'],
-        uid=request.data['uid']
+        uid=request.data['uid'],
+        role=request.data['role'],
+        admin=request.data['admin']
     )
 
     # Return the gamer info to the client
@@ -56,5 +58,7 @@ def register_user(request):
       'email': user.email,
       'image_url': user.image_url,
       'uid': user.uid,
+      'role':user.role,
+      'admin':user.admin
     }
     return Response(data)
