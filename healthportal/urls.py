@@ -19,10 +19,11 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 
-from healthportalapi.views import register_user, check_user
+from healthportalapi.views import register_user, check_user,UserView
 
 
 router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'users', UserView, 'user')
 
 
 
