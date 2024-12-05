@@ -4,9 +4,12 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from healthportalapi.models import User
+from rest_framework import filters
 
 class UserView(ViewSet):
     """Rare Users view"""
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['username','role']
     
     def list(self, request):
         """Handle GET requests to get all users
