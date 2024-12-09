@@ -19,7 +19,7 @@ from django.urls import path
 from django.conf.urls import include
 from rest_framework import routers
 
-from healthportalapi.views import register_user, check_user,UserView,PatientIntakeFormView, get_patient_intake_form, DoctorPatientView
+from healthportalapi.views import register_user, check_user,UserView,PatientIntakeFormView, get_patient_intake_form, DoctorPatientView, get_doctor_patient_by_doctor_id
 
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -30,12 +30,14 @@ router.register(r'doctorpatient', DoctorPatientView, 'doctorpatient')
 
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
     path('register', register_user),
     path('checkuser', check_user),
     path('api/getpatientintakeform/<int:patient_id>/', get_patient_intake_form, name='get_patient_intake_form'),
+    path('get_doctor_patient_by_doctor_id/<int:doctor_id>/', get_doctor_patient_by_doctor_id, name='get_doctor_patient_by_doctor_id'),
    
 
 ]
